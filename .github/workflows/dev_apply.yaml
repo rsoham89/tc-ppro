@@ -24,8 +24,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          pwd
-          cd ../../terraform/resources/
+          cd terraform/resources/
           terraform init -backend-config=bucket=tf-state-soham-poc-bucket -backend-config=key=dev/terraform.tfstate
 
       - name: Terraform Apply
