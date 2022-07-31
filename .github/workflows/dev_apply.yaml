@@ -28,11 +28,11 @@ jobs:
           terraform init -backend-config=bucket=tf-state-soham-poc-bucket -backend-config=key=dev/terraform.tfstate
 
       - name: Terraform Apply
-        id: plan
+        id: apply
         if: github.event_name == 'push'
         run: terraform apply --var-file=../environments/dev/dev.tfvars -auto-approve
         continue-on-error: true
 
       - name: Terraform Apply Status
-        if: steps.plan.outcome == 'failure'
+        if: steps.apply.outcome == 'failure'
         run: exit 1
