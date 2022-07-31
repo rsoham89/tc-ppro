@@ -30,7 +30,7 @@ jobs:
       - name: Terraform Apply
         id: apply
         if: github.event_name == 'push'
-        run: terraform apply --var-file=../environments/dev/dev.tfvars -auto-approve
+        run: terraform apply --var-file=terraform/environments/dev/dev.tfvars -auto-approve
         continue-on-error: true
 
       - name: Terraform Apply Status
