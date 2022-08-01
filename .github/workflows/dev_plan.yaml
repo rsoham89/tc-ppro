@@ -24,13 +24,15 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          cd ../../terraform/resources/
+          cd terraform/resources/
           terraform init -backend-config=bucket=tf-state-soham-poc-bucket -backend-config=key=dev/terraform.tfstate
 
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'push'
-        run: terraform plan --var-file=../environments/dev/dev.tfvars -no-color
+        run: |
+        terraform/resources/
+        terraform plan --var-file=../environments/dev/dev.tfvars -no-color
         continue-on-error: true
 
       - name: Terraform Plan Status
