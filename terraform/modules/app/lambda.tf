@@ -10,11 +10,12 @@ resource "aws_iam_role_policy_attachment" "dynamodb_access_policy" {
 
 resource "aws_lambda_function" "lambda_api" {
 
-  filename      = var.lambda_filename
-  function_name = local.lambda_function_name
-  role          = aws_iam_role.lambda_ddb_role.arn
-  handler       = var.lambda_handler
-  runtime       = var.lambda_runtime
+  filename         = data.archive_file.zipped_file.output_path
+  source_code_hash = data.archive_file.zipped_file.output_base64sha256
+  function_name    = local.lambda_function_name
+  role             = aws_iam_role.lambda_ddb_role.arn
+  handler          = var.lambda_handler
+  runtime          = var.lambda_runtime
 
 
   environment {
@@ -31,9 +32,15 @@ resource "aws_lambda_function_url" "url" {
   cors {
     allow_credentials = true
     allow_origins     = ["*"]
-    allow_methods     = ["*"]
+    allow_methods     = ["GET"]
     allow_headers     = ["date", "keep-alive"]
     expose_headers    = ["keep-alive", "date"]
     max_age           = 86400
   }
+}
+
+data "archive_file" "zipped_file" {
+  type        = "zip"
+  source_dir  = "${path.module}/lambda_code/"
+  output_path = "${path.module}/lambda_api.zip"
 }
