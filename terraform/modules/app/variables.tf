@@ -20,7 +20,7 @@ variable "dynamo_table_hash_key" {
 variable "env" {
   type        = string
   description = "Environment dev or prod"
-  default     = "dev/prod"
+  default     = "dev"
 }
 
 #### Entries for Lambda #######

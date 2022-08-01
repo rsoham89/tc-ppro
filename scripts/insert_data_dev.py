@@ -1,7 +1,7 @@
 """
 #--------------------------------------------------------------------------------------------
 #| Module: insert_data_dev.py
-#| Function:   main()                                                               						   
+#| Function: main()                                                               						   
 #| Author: Soham Roy                                                       					           
 #| Version: 1.0                                                                             						
 #| Date: 01.08.2022                                                                        						   
