@@ -78,7 +78,7 @@ The following are the breakdown of all the terraform objects (generated from ter
 | Name | Version |
 |------|---------|
 | <a name="provider_archive"></a> [archive](#provider\_archive) | n/a |
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | latest |
 
 ### Modules
 
@@ -102,14 +102,14 @@ The following are the breakdown of all the terraform objects (generated from ter
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_dynamo_table_billing_mode"></a> [dynamo\_table\_billing\_mode](#input\_dynamo\_table\_billing\_mode) | Provisioned or Pay Per Request | `string` | `"PAY_PER_REQUEST"` | no |
-| <a name="input_dynamo_table_hash_key"></a> [dynamo\_table\_hash\_key](#input\_dynamo\_table\_hash\_key) | The partition key of the table (In this case the primary key) | `string` | `"Statement"` | no |
-| <a name="input_dynamo_table_name"></a> [dynamo\_table\_name](#input\_dynamo\_table\_name) | The main database from where the data will be retrieved | `string` | `"Statements"` | no |
-| <a name="input_env"></a> [env](#input\_env) | Environment dev or prod | `string` | `"dev/prod"` | no |
-| <a name="input_lambda_function_name"></a> [lambda\_function\_name](#input\_lambda\_function\_name) | Name of the lambda function | `string` | `"helloWorldAPI"` | no |
-| <a name="input_lambda_handler"></a> [lambda\_handler](#input\_lambda\_handler) | Name of the handler function | `string` | `"lambda_function.lambda_handler"` | no |
-| <a name="input_lambda_role_ddb_name"></a> [lambda\_role\_ddb\_name](#input\_lambda\_role\_ddb\_name) | Lambda execution role | `string` | `"lambda-exec-role"` | no |
-| <a name="input_lambda_runtime"></a> [lambda\_runtime](#input\_lambda\_runtime) | Lambda runtime environment | `string` | `"python3.8"` | no |
+| <a name="input_dynamo_table_billing_mode"></a> [dynamo\_table\_billing\_mode](#input\_dynamo\_table\_billing\_mode) | Provisioned or Pay Per Request | `string` | `"PAY_PER_REQUEST"` | yes |
+| <a name="input_dynamo_table_hash_key"></a> [dynamo\_table\_hash\_key](#input\_dynamo\_table\_hash\_key) | The partition key of the table (In this case the primary key) | `string` | `"Statement"` | yes |
+| <a name="input_dynamo_table_name"></a> [dynamo\_table\_name](#input\_dynamo\_table\_name) | The main database from where the data will be retrieved | `string` | `"Statements"` | yes |
+| <a name="input_env"></a> [env](#input\_env) | Environment dev or prod | `string` | `"dev/prod"` | yes |
+| <a name="input_lambda_function_name"></a> [lambda\_function\_name](#input\_lambda\_function\_name) | Name of the lambda function | `string` | `"helloWorldAPI"` | yes |
+| <a name="input_lambda_handler"></a> [lambda\_handler](#input\_lambda\_handler) | Name of the handler function | `string` | `"lambda_function.lambda_handler"` | yes |
+| <a name="input_lambda_role_ddb_name"></a> [lambda\_role\_ddb\_name](#input\_lambda\_role\_ddb\_name) | Lambda execution role | `string` | `"lambda-exec-role"` | yes |
+| <a name="input_lambda_runtime"></a> [lambda\_runtime](#input\_lambda\_runtime) | Lambda runtime environment | `string` | `"python3.8"` | yes |
 
 ### Outputs
 
