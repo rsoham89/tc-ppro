@@ -30,8 +30,8 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: |
-        cd terraform/resources/
-        terraform plan --var-file=../environments/dev/dev.tfvars -no-color
+          cd terraform/resources/
+          terraform plan --var-file=../environments/dev/dev.tfvars -no-color
         continue-on-error: true
 
       - name: Terraform Plan Status
