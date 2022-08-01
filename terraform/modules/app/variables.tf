@@ -1,47 +1,49 @@
 #### Entries for Dynamodb #######
 variable "dynamo_table_name" {
-  type    = string
-  default = "Statements"
+  type        = string
+  description = "The main database from where the data will be retrieved"
+  default     = "Statements"
 }
 
 variable "dynamo_table_billing_mode" {
-  type    = string
-  default = "PAY_PER_REQUEST"
+  type        = string
+  description = "Provisioned or Pay Per Request"
+  default     = "PAY_PER_REQUEST"
 }
 
 variable "dynamo_table_hash_key" {
-  type    = string
-  default = "Statement"
+  type        = string
+  description = "The partition key of the table (In this case the primary key)"
+  default     = "Statement"
 }
 
 variable "env" {
-  type    = string
-  default = "prod"
+  type        = string
+  description = "Environment dev or prod"
+  default     = "dev"
 }
 
 #### Entries for Lambda #######
 
 variable "lambda_role_ddb_name" {
-  type    = string
-  default = "lambda-exec-role"
+  type        = string
+  description = "Lambda execution role"
+  default     = "lambda-exec-role"
 }
-
-variable "lambda_filename" {
-  type    = string
-  default = "lambda_function.py.zip"
-}
-
 variable "lambda_function_name" {
-  type    = string
-  default = "helloWorldAPI"
+  type        = string
+  description = "Name of the lambda function"
+  default     = "helloWorldAPI"
 }
 
 variable "lambda_handler" {
-  type    = string
-  default = "lambda_function.lambda_handler"
+  type        = string
+  description = "Name of the handler function"
+  default     = "lambda_function.lambda_handler"
 }
 
 variable "lambda_runtime" {
-  type    = string
-  default = "python3.8"
+  type        = string
+  description = "Lambda runtime environment"
+  default     = "python3.8"
 }
