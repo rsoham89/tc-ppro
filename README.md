@@ -30,7 +30,7 @@ For the MVP the below tools are selected
 
 Before diving into the application architecture diagram lets first break down the requirement.
 - A HTTP GET request will be sent to an API. So, the request is ad hoc. This indicates that a serverless framework is suited for the application layer, hence **lambda**.
-- This is a minimalistic application. Hence it is safer to conclude a 'cost optimized' framework. The databased asked was a managed database. So, if we follow the serverless model we can either go for *Aurora Serverless* or *Dynamodb*. I chose **Dynamodb** in **On_Demand** mode as we don't need any structured data and we don't need any provisioned RCU and WCU. 
+- This is a minimalistic application. Hence it is safer to conclude a 'cost optimized' framework. The database asked was a managed database. So, if we follow the serverless model we can either go for *Aurora Serverless* or *Dynamodb*. I chose **Dynamodb** in **On_Demand** mode as we don't need any structured data and we don't need any provisioned RCU and WCU. 
 
 ### What I excluded
 
@@ -196,6 +196,15 @@ Lets have a small discussion of the workflows -
   `terraform plan --var-file=../environments/dev/dev.tfvars -no-color`
 
   The merge request will not turn green till the workflow runs successfully. Once the workflow is a success, the reviewer can review the code and merge to `develop` branch.
+
+   While runner is running - 
+
+   ![diagram](images/pr1.png)
+
+   After running completes -
+
+   ![diagram](images/pr2.png)
+
 
 - **Step 2: Merged to Develop**
 
